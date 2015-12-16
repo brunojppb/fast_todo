@@ -4,6 +4,21 @@ RSpec.describe Api::V1::UsersController, type: :controller do
 
   before(:each) { request.headers['Accept'] = "application/vnd.fasttodo.v1" }
 
+  describe "when GET #index" do
+    before(:each) do
+      @users = []
+      10.times { @users << FactoryGirl.create(:user) }
+      get :index, format: :json
+    end
+
+    it "should return 10 users" do
+      user_response = JSON.parse(response.body, symbolize_names: true)
+      expect(user_response[:users].length).to eql 10
+    end
+
+    it { should respond_with 200 }
+  end
+
   describe "when GET #show" do
     before(:each) do
       @user = FactoryGirl.create :user
@@ -79,7 +94,6 @@ RSpec.describe Api::V1::UsersController, type: :controller do
     end
 
     it { respond_with 204 }
-
   end
 
 end

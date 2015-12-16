@@ -3,6 +3,7 @@ class Api::V1::UsersController < Api::ApiController
   before_action :find_user, only: [:show, :update, :destroy]
 
   def index
+    render json: User.all
   end
 
   def show
