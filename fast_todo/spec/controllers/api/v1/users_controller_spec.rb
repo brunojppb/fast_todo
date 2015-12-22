@@ -26,7 +26,6 @@ RSpec.describe Api::V1::UsersController, type: :controller do
 
   describe "when GET #show" do
     before(:each) do
-      @user = FactoryGirl.create :user
       get :show, id: @user.id, format: :json
     end
 
