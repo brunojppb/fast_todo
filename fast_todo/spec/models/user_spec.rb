@@ -23,6 +23,7 @@ RSpec.describe User, type: :model do
     it { should_not allow_value('bruno@.com').for(:email) }
 
     it { should have_many :devices }
+    it { should have_many :todos }
 
   end
 

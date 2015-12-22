@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
 
   # Associations
   has_many :devices, dependent: :destroy
+  has_many :todos
 
   protected
     def email_downcase

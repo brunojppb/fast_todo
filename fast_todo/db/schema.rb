@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151222010402) do
+ActiveRecord::Schema.define(version: 20151222030703) do
 
   create_table "devices", force: :cascade do |t|
     t.string   "auth_token",       default: "",    null: false
@@ -24,6 +24,19 @@ ActiveRecord::Schema.define(version: 20151222010402) do
 
   add_index "devices", ["auth_token"], name: "index_devices_on_auth_token", unique: true
   add_index "devices", ["user_id"], name: "index_devices_on_user_id"
+
+  create_table "todos", force: :cascade do |t|
+    t.string   "title",      default: "",    null: false
+    t.string   "body",       default: "",    null: false
+    t.datetime "due_date"
+    t.boolean  "completed",                  null: false
+    t.boolean  "remember",   default: false, null: false
+    t.integer  "user_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "todos", ["user_id"], name: "index_todos_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name",      default: "",    null: false
