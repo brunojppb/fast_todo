@@ -2,24 +2,26 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::DevicesController, type: :controller do
 
-  before(:each) { request.headers['Accept'] = "application/vnd.fasttodo.v1" }
+  before(:each) do
+    @user = FactoryGirl.create :user
+    @device = FactoryGirl.create :device, user: @user
+    request.headers['Accept'] = "application/vnd.fasttodo.v1"
+    request.headers['Authorization'] = @device.auth_token
+  end
 
   describe "when GET #index" do
     before(:each) do
-      @devices = []
-      10.times { @devices << FactoryGirl.create(:device) }
       get :index, format: :json
     end
 
-    it "should return 10 devices" do
+    it "should return 1 device" do
       device_response = JSON.parse(response.body, symbolize_names: true)
-      expect(device_response[:devices].length).to eql 10
+      expect(device_response[:devices].length).to eql 1
     end
   end
 
   describe "when DELETE #destroy" do
     before(:each) do
-      @device = FactoryGirl.create :device
       delete :destroy, id: @device.id, format: :json
     end
 

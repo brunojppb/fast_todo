@@ -2,7 +2,12 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::UsersController, type: :controller do
 
-  before(:each) { request.headers['Accept'] = "application/vnd.fasttodo.v1" }
+  before(:each) do
+    @user = FactoryGirl.create :user
+    @device = FactoryGirl.create :device, user: @user
+    request.headers['Accept'] = "application/vnd.fasttodo.v1"
+    request.headers['Authorization'] = @device.auth_token
+  end
 
   describe "when GET #index" do
     before(:each) do
@@ -13,7 +18,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
 
     it "should return 10 users" do
       user_response = JSON.parse(response.body, symbolize_names: true)
-      expect(user_response[:users].length).to eql 10
+      expect(user_response[:users].length).to eql 11
     end
 
     it { should respond_with 200 }
