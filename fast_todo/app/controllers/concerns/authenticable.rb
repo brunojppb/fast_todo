@@ -1,7 +1,11 @@
 module Authenticable
 
   def current_user
-    @current_user ||= Device.find_by(auth_token: request.headers['Authorization']).user
+    @device ||= Device.find_by(auth_token: request.headers['Authorization'])
+    if @device.nil?
+      return nil
+    end
+    @current_user ||= @device.user
   end
 
   def authenticate_with_token!
