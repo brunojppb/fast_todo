@@ -26,17 +26,15 @@ ActiveRecord::Schema.define(version: 20151222030703) do
   add_index "devices", ["user_id"], name: "index_devices_on_user_id"
 
   create_table "todos", force: :cascade do |t|
-    t.string   "title",      default: "",    null: false
-    t.string   "body",       default: "",    null: false
+    t.string   "title",      default: ""
+    t.string   "body",       default: ""
     t.datetime "due_date"
-    t.boolean  "completed",                  null: false
-    t.boolean  "remember",   default: false, null: false
+    t.boolean  "completed",  default: false
+    t.boolean  "remember",   default: false
     t.integer  "user_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end
-
-  add_index "todos", ["user_id"], name: "index_todos_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name",      default: "",    null: false
