@@ -6,11 +6,13 @@ class Api::V1::SessionsController < Api::ApiController
     if !email.nil? && !password.nil?
       user = User.find_by(email: email)
       if user && user.authenticate(password)
-        device = create_device(user, params[:session][:operation_system])
+        device = create_device(user, 'Google Chrome')
         render json: device, status: 201
       else
-        render json: { errors: "wrong email/password combination" }, status: 202
+        render json: { errors: "wrong email/password combination" }, status: 422
       end
+    else
+      render json: { errors: "wrong email/password combination" }, status: 422
     end
   end
 

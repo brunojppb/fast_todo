@@ -1,0 +1,21 @@
+{{#paper-grid-list md-cols-sm="1" md-cols-md="2" md-cols-gt-md="2"
+  md-row-height-gt-md="1:1" md-row-height="1:1"
+  md-gutter="12px" md-gutter-gt-sm="8px"}}
+
+    {{#paper-grid-tile class="gray"}}
+      {{#paper-content}}
+        <h1 style="text-align: center">The easiest way to manage your life</h1>
+        <div style="text-align: center">
+          {{link-to 'Login' 'login' class="md-default-theme md-button"}}
+          {{#paper-button primary=true}}Sign up{{/paper-button}}
+        </div>
+      {{/paper-content}}
+    {{/paper-grid-tile}}
+
+    {{#paper-grid-tile class="green"}}
+      {{#paper-grid-tile-footer}}
+          #2: (1r x 1c)
+      {{/paper-grid-tile-footer}}
+    {{/paper-grid-tile}}
+
+  {{/paper-grid-list}}

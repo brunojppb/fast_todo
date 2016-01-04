@@ -1,3 +1,29 @@
-<h2 id="title">Welcome to Ember</h2>
+{{#paper-nav-container}}
+  {{!-- paper-sidenav --}}
+  {{!-- RENDER side menu only when user is logged in --}}
+  {{#if session.isAuthenticated}}
+    {{partial 'shared/sidenav'}}
+  {{/if}}
+  {{!-- END - paper-sidenav --}}
 
-{{outlet}}
+  <div layout="column" tabindex="-1" role="main" flex>
+    {{#paper-toolbar}}
+      <div class="md-toolbar-tools">
+      {{#if session.isAuthenticated}}
+        {{#paper-sidenav-toggle as |toggle|}}
+          {{#paper-button target=toggle action="toggleMenu" icon-button=true}}{{paper-icon icon="menu"}}{{/paper-button}}
+        {{/paper-sidenav-toggle}}
+      {{/if}}
+      <span class="md-breadcrumb-page">Fast Todo</span>
+      {{#if session.isAuthenticated}}
+        {{#paper-button icon-button=true action="invalidateSession"}}{{paper-icon icon="exit-to-app"}}{{/paper-button}}
+        {{/if}}
+      </div>
+    {{/paper-toolbar}}
+
+    {{#paper-content class="md-padding"}}
+    {{outlet}}
+    {{/paper-content}}
+  </div>
+{{/paper-nav-container}}
+

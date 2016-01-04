@@ -1,0 +1,7 @@
+
+<form {{action "authenticate" on="submit"}}>
+  {{paper-input label="Email" value=email}}
+  {{paper-input label="Password" type="password" value=password}}
+  <input  type="submit" value="Log in" class="md-primary md-raised md-default-theme md-button"/>
+  <button {{action "cancel"}} class="md-raised md-default-theme md-button">Cancel</button>
+</form>
