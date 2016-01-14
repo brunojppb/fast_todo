@@ -20,5 +20,52 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
+  // Twitter Bootstrap
+  app.import('bower_components/bootstrap/dist/js/bootstrap.min.js');
+  app.import('bower_components/bootstrap/dist/css/bootstrap.min.css');
+  app.import('bower_components/bootstrap/dist/css/bootstrap-theme.min.css');
+  app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.eot', {
+    destDir: 'font'
+  });
+  app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.svg', {
+    destDir: 'font'
+  });
+  app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf', {
+    destDir: 'font'
+  });
+  app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff', {
+    destDir: 'font'
+  });
+  app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2', {
+    destDir: 'font'
+  });
+
+  app.import('bower_components/bootstrap/dist/css/bootstrap.min.css');
+
+  // Bootstrap Material Design
+  app.import('bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.min.css');
+  app.import('bower_components/bootstrap-material-design/dist/css/ripples.min.css');
+  app.import('bower_components/bootstrap-material-design/dist/js/material.js');
+  app.import('bower_components/bootstrap-material-design/dist/js/ripples.js');
+
+  // Moment.JS
+  app.import('bower_components/moment/moment.js');
+
   return app.toTree();
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

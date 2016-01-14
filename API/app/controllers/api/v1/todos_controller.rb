@@ -4,7 +4,7 @@ class Api::V1::TodosController < Api::ApiController
 
   def index
     todos = current_user.todos
-    render json: todos, status: 200
+    render json: {todos: todos}, status: 200
   end
 
   def show

@@ -1,8 +1,8 @@
-import DS from 'ember-data';
+import ActiveModelAdapter from 'active-model-adapter';
 import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
 
-export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
+export default ActiveModelAdapter.extend(DataAdapterMixin, {
   authorizer:  'authorizer:fast',
   namespace:   'api',
-  host:        'http://localhost:3000/'
+  host:        'http://localhost:3000'
 });

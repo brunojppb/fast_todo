@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="well bs-component">
+        <form class="form-horizontal" {{action 'save' on="submit"}}>
+          <fieldset>
+            <legend>Signup now!</legend>
+            <div class="form-group is-empty">
+              <div class="col-md-12">
+                {{firstName}}
+                {{input value=model.firstName class="form-control" placeholder="First Name"}}
+              </div>
+              <span class="material-input"></span>
+              <div class="col-md-12">
+                {{input value=model.lastName class="form-control" placeholder="Last Name"}}
+              </div>
+              <span class="material-input"></span>
+              <div class="col-md-12">
+                {{input value=model.email class="form-control" placeholder="Email"}}
+              </div>
+              <span class="material-input"></span>
+              <div class="col-md-12">
+                  {{input value=model.password type="password" class="form-control" placeholder="Password"}}
+              </div>
+              <span class="material-input"></span>
+              <div class="col-md-12">
+                  {{input value=model.passwordConfirmation type="password" class="form-control" placeholder="Password Confirmation"}}
+              </div>
+              <span class="material-input"></span>
+            <input type="submit" name="submit" class="btn btn-danger" value="sign up">
+              </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

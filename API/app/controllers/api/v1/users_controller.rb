@@ -34,6 +34,7 @@ class Api::V1::UsersController < Api::ApiController
 
   protected
     def user_params
+      puts "PARAMS: #{params}"
       params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
     end
 
