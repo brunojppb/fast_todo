@@ -15,7 +15,7 @@ class Api::V1::UsersController < Api::ApiController
     if user.save
       render json: user, status: 201, location: [:api, user]
     else
-      render json: { errors: user.errors }, status: 202
+      render json: { errors: user.errors }, status: 422
     end
   end
 
@@ -23,7 +23,7 @@ class Api::V1::UsersController < Api::ApiController
     if current_user.update(user_params)
       render json: current_user, status: 200, locaiton: [:api, current_user]
     else
-      render json: { errors: current_user.errors }, status: 202
+      render json: { errors: current_user.errors }, status: 422
     end
   end
 

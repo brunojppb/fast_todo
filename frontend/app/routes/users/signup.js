@@ -9,8 +9,10 @@ export default Ember.Route.extend({
   actions: {
     save() {
       var model = this.modelFor('users/signup');
-      model.save().then(() => {
+      model.save().then((response) => {
         this.transitionTo('home');
+      }).catch((reason) => {
+        console.log(reason);
       });
     }
   }

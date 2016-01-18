@@ -10,7 +10,7 @@
                 </div>
                 <div class="navbar-collapse collapse navbar-warning-collapse">
                   <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
+                    <li>{{link-to 'Home' 'home' class='active'}}</li>
                   </ul>
 
                   <ul class="nav navbar-nav navbar-right">
@@ -27,6 +27,9 @@
                     {{else}}
                       <li>
                         {{link-to 'Sign in' 'login'}}
+                      </li>
+                      <li>
+                        {{link-to 'Sign Up' 'users.signup'}}
                       </li>
                     {{/if}}
 
