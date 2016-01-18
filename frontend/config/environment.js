@@ -66,7 +66,7 @@ module.exports = function(environment) {
     authorizer: 'authorizer:fast',
     crossOriginWhitelist: ['self', 'http://localhost:3000'],
     authenticationRoute: '/login',
-    routeAfterAuthentication: '/'
+    routeAfterAuthentication: '/todos'
   };
 
   return ENV;
