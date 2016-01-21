@@ -40,7 +40,7 @@ module.exports = function(defaults) {
     destDir: 'font'
   });
 
-  app.import('bower_components/bootstrap/dist/css/bootstrap.min.css');
+  // app.import('bower_components/bootstrap/dist/css/bootstrap.min.css');
 
   // Bootstrap Material Design
   app.import('bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.min.css');

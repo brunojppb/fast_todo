@@ -9,7 +9,9 @@ Router.map(function() {
   this.route('home', {path: '/'});
   this.route('login', {path: '/login'});
 
-  this.route('todos', function() {});
+  this.route('todos', function() {
+    this.route('new');
+  });
 
   this.route('users', function() {
     this.route('signup');

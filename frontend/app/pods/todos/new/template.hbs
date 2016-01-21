@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="well bs-component">
+        <form class="form-horizontal" {{action 'save' on="submit"}}>
+          <fieldset>
+            <legend>Create a new item</legend>
+            <ul>
+              {{#each model.errors.email as |error|}}
+                <li>{{error.message}}</li>
+              {{/each}}
+            </ul>
+
+
+            <div class="form-group label-floating is-empty">
+              <label for="title-input" class="control-label">Title</label>
+              {{input value=model.title class="form-control" id="title-input"}}
+            <span class="material-input"></span></div>
+
+            <div class="form-group label-floating is-empty">
+              <label for="body-input" class="control-label">Description</label>
+              {{input value=model.body class="form-control" id="body-input"}}
+            <span class="material-input"></span></div>
+
+
+            <input type="submit" name="submit" class="btn btn-success" value="Save">
+            <a class="btn btn-danger pull-right">Cancel</a>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
