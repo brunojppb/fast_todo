@@ -23,9 +23,9 @@
               {{input value=model.body class="form-control" id="body-input"}}
             <span class="material-input"></span></div>
 
-
-            <input type="submit" name="submit" class="btn btn-success" value="Save">
-            <button class="btn btn-danger pull-right" {{action 'cancel'}}>Cancel</button>
+            <button class="btn btn-success btn-raised" {{action 'save'}}> {{fa-icon "floppy-o"}} Save
+            </button>
+            <button class="btn btn-danger btn-raised pull-right" {{action 'cancel'}}> {{fa-icon "times"}} Cancel</button>
           </fieldset>
         </form>
       </div>

@@ -17,8 +17,15 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       // to the backend
       if(model.get('isNew')) {
         // call DS#destroyRecord() which removes it from the store
-        model.destroyRecord();
+        console.log(' --------- Destroying  ------');
+        model.destroyRecord().then((success) => {
+          console.log('SUCCESS DELETE TODO');
+        }).catch((response) => {
+          model.unloadRecord();
+          console.log('ERROR DELETE TODO');
+        });
       }
+
     } else {
       console.log('--------- ResetController model changes');
     }

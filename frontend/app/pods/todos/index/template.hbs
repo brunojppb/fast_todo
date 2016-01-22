@@ -6,7 +6,8 @@
   </div>
   <div class="row">
     {{#each model as |todo|}}
-    {{todo-item todo=todo}}
+    {{todo-item todo=todo
+                delete='delete'}}
     {{/each}}
   </div>
 </div>
