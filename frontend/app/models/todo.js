@@ -5,6 +5,5 @@ export default DS.Model.extend({
   body:       DS.attr('string'),
   completed:  DS.attr('boolean'),
   remember:   DS.attr('boolean'),
-  dueDate:    DS.attr('date'),
-  createdAt:  DS.attr('date'),
+  dueDate:    DS.attr('date')
 });

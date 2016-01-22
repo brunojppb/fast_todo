@@ -4,7 +4,7 @@ class Api::V1::TodosController < Api::ApiController
 
   def index
     todos = current_user.todos
-    render json: {todos: todos}, status: 200
+    render json: todos, status: 200
   end
 
   def show
@@ -17,6 +17,7 @@ class Api::V1::TodosController < Api::ApiController
   end
 
   def create
+    puts "PARAMS: #{params}"
     todo = current_user.todos.build(todo_params)
     if todo.save
       render json: todo, status: 201, location: [:api, todo]
@@ -50,7 +51,7 @@ class Api::V1::TodosController < Api::ApiController
 
   private
     def todo_params
-      params.require(:todo).permit(:title, :body, :due_date, :completed, :remember)
+      params.require(:data).require(:attributes).permit(:title, :body, :due_date, :completed, :remember)
     end
 
 end
