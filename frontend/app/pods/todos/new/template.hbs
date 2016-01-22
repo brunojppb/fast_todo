@@ -5,8 +5,9 @@
         <form class="form-horizontal" {{action 'save' on="submit"}}>
           <fieldset>
             <legend>Create a new item</legend>
+            {{link-to 'Back to list' 'todos'}}
             <ul>
-              {{#each model.errors.email as |error|}}
+              {{#each model.errors.title as |error|}}
                 <li>{{error.message}}</li>
               {{/each}}
             </ul>
@@ -24,7 +25,7 @@
 
 
             <input type="submit" name="submit" class="btn btn-success" value="Save">
-            <a class="btn btn-danger pull-right">Cancel</a>
+            <button class="btn btn-danger pull-right" {{action 'cancel'}}>Cancel</button>
           </fieldset>
         </form>
       </div>

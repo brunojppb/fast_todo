@@ -15,7 +15,7 @@ class Api::V1::UsersController < Api::ApiController
     if user.save
       render json: user, status: 201, location: [:api, user]
     else
-      render json: { errors: user.errors }, status: 422
+      render json: ErrorSerializer.serialize(user.errors), status: 422
     end
   end
 
@@ -35,7 +35,7 @@ class Api::V1::UsersController < Api::ApiController
   protected
     def user_params
       puts "PARAMS: #{params}"
-      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+      params.require(:data).require(:attributes).permit(:first_name, :last_name, :email, :password, :password_confirmation)
     end
 
 end

@@ -1,21 +1,12 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
-      {{link-to 'New Todo' 'todos.new' class="btn btn-success"}}
+      {{link-to 'New Todo' 'todos.new' class="btn btn-warning btn-raised"}}
     </div>
   </div>
   <div class="row">
     {{#each model as |todo|}}
-    <div class="col-xs-12">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">{{todo.body}}</h3>
-        </div>
-        <div class="panel-body">
-          Panel content
-        </div>
-      </div>
-    </div>
+    {{todo-item todo=todo}}
     {{/each}}
   </div>
 </div>

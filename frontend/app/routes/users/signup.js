@@ -12,7 +12,7 @@ export default Ember.Route.extend({
       model.save().then((response) => {
         this.transitionTo('home');
       }).catch((reason) => {
-        console.log(reason);
+        console.log("reason: " + reason);
       });
     }
   }

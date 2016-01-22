@@ -22,7 +22,7 @@ class Api::V1::TodosController < Api::ApiController
     if todo.save
       render json: todo, status: 201, location: [:api, todo]
     else
-      render json: { errors: todo.errors }, status: 422
+      render json: ErrorSerializer.serialize(todo.errors), status: 422
     end
   end
 

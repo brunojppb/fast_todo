@@ -9,6 +9,10 @@ export default Ember.Controller.extend({
       }).catch((error) => {
         console.log('ERROR Saving todo.');
       });
+    },
+
+    cancel() {
+      this.transitionToRoute('todos');
     }
   }
 
